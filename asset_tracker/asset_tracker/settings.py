@@ -43,6 +43,7 @@ Extended_APPS = [
     'employee',
     'company',
     'device',
+    'device_log'
 ]
 INSTALLED_APPS += Extended_APPS
     
