@@ -4,9 +4,6 @@ from rest_framework.response import Response
 from company.models import Company
 from .serializer import CompanySerializer
 
-@api_view()
-def hello_world(request):
-    return Response({"message": "Hello, world!"})
 # function to save company
 @api_view(['POST'])
 def save_company(request):

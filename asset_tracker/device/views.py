@@ -29,3 +29,23 @@ def add_device(request):
         print(e)
         print(f"Error occurred during JSON serialization: {str(e)}")
         return Response({"message": "Device not created"})
+
+
+# get all devices with company uid
+@api_view(['POST'])
+def get_devices(request):
+    try:
+        # get company uid from request body
+        company_uid=request.data.get("company")
+        # get devices
+        devices=Device.objects.filter(company=company_uid)
+        serializer=DeviceSerializer(devices,many=True)
+        return Response({
+            "status": "success",
+            "message": "Devices retrieved successfully",
+            "data": serializer.data
+        })
+    except Exception as e:
+        print(e)
+        return Response({"message": {str(e)}})
+    

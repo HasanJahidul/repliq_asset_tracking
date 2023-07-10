@@ -3,8 +3,9 @@ import uuid
 
 class Device_Log(models.Model):
     uid=models.UUIDField(primary_key=True, editable=False, unique=True, default=uuid.uuid4())
-    device = models.ForeignKey('device.Device', on_delete=models.CASCADE)
-    woring = models.BooleanField(default=True)
+    device = models.ForeignKey('device.Device', on_delete=models.CASCADE,related_name='device',null=True,blank=True)
+    working = models.BooleanField(default=True)
+    belongs_to = models.ForeignKey('employee.Employee', on_delete=models.CASCADE,related_name='employee',null=True,blank=True)
     checked_out_date = models.DateTimeField(auto_now_add=True)
     checked_out_condition = models.CharField(max_length=50)
     returned_date = models.DateTimeField(auto_now_add=True)

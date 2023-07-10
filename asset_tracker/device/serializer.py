@@ -2,9 +2,9 @@ from rest_framework import serializers
 from .models import Device
 
 class DeviceSerializer(serializers.ModelSerializer):
-    belongs_to = serializers.StringRelatedField(many=False)
+    # a device can have many device_log
+    device_log = serializers.StringRelatedField(many=True, read_only=True)
     
     class Meta:
         model = Device
-        fields = '__all__'
-        depth = 4
+        exclude = ['created_at', 'updated_at']
