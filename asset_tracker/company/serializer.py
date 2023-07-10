@@ -3,13 +3,11 @@ from .models import Company
 
 
 class CompanySerializer(serializers.ModelSerializer):
-    employees = serializers.StringRelatedField(many=True)
     
     class Meta:
         model = Company
         depth = 4
-        # fields='__all__'
-        # get company with employees
+        
         
         exclude = ['created_at', 'updated_at']
         def validate_name(self, data):

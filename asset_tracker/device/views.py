@@ -7,7 +7,7 @@ from .serializer import DeviceSerializer
 from rest_framework import viewsets
 
 @api_view(['POST'])
-def add_devices(request):
+def add_device(request):
     try:
         data=request.data
         print(data)

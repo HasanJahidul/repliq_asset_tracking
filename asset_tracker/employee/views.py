@@ -33,9 +33,8 @@ def save_employee(request):
 def get_employees(request):
     try:
         # get company uid from request body
-        
         company_uid=request.data.get("company_uid")
-        print(company_uid)
+        # print(company_uid)
         employees=Employee.objects.filter(company=company_uid)
         serializer=EmployeeSerializer(employees,many=True)
         return Response({

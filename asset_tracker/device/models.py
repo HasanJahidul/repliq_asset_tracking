@@ -8,7 +8,7 @@ class Device(models.Model):
     type = models.CharField(max_length=50)
     description = models.TextField()
     check_out = models.BooleanField(default=False)
-    belongs_to = models.ForeignKey('employee.Employee', on_delete=models.CASCADE,related_name='devices')
+    belongs_to = models.ForeignKey('employee.Employee', on_delete=models.CASCADE, related_name='devices', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):

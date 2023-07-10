@@ -6,7 +6,7 @@ class Employee(models.Model):
     uid=models.UUIDField(primary_key=True, editable=False, unique=True, default=uuid.uuid4())
     name = models.CharField(max_length=50)
     age = models.IntegerField()
-    company = models.ForeignKey('company.Company', on_delete=models.CASCADE,related_name='employees')
+    company = models.ForeignKey('company.Company', on_delete=models.CASCADE, related_name='employees')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
